@@ -7,7 +7,7 @@
     "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "^26.0.15",
-    "@types/node": "16.11.17",
+    "@types/node": "16.11.19",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
     "craco": "0.0.3",
@@ -44,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.8.1",
+    "@typescript-eslint/eslint-plugin": "5.9.0",
     "eslint-config-prettier": "8.3.0",
     "prettier": "2.5.1"
   }
