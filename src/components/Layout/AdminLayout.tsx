@@ -1,26 +1,34 @@
 import React from 'react';
 import clsx from 'clsx';
-import { createMuiTheme } from '@material-ui/core/styles';
 import * as colors from '@material-ui/core/colors';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import {
+  AppBar,
+  Container,
+  CssBaseline,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+import {
+  createStyles,
+  createMuiTheme,
+  makeStyles,
+  Theme,
+} from '@material-ui/core/styles';
+import {
+  ChevronLeft as ChevronLeftIcon,
+  Dashboard as DashboardIcon,
+  Settings as SettingsIcon,
+  Menu as MenuIcon,
+} from '@material-ui/icons';
 import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import IconButton from '@material-ui/core/IconButton';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
 const drawerWidth = 240;
 
