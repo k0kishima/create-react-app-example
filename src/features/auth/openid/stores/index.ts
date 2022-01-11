@@ -1,4 +1,4 @@
-import reducer, { actions, initialState } from './slice';
+import reducer, { actions, initialState } from "./slice";
 
 export const authStore = {
   initialState,
