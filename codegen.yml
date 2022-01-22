@@ -1,0 +1,10 @@
+overwrite: true
+schema: 'http://localhost:53000/graphql'
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher: fetch
