@@ -5,6 +5,8 @@ generates:
     plugins:
       - typescript
       - typescript-operations
-      - typescript-react-query
+      - typescript-graphql-request
     config:
-      fetcher: fetch
+      fetcher: graphql-request
+      isReactHook: true
+      exposeQueryKeys: true
