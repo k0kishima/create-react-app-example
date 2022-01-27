@@ -1,12 +1,12 @@
 overwrite: true
 schema: ${REACT_APP_GRAPHQL_SERVER_BASE_URL}
+documents:
+  - ./src/graphql/**/*.graphql
 generates:
   src/generated/graphql.ts:
     plugins:
       - typescript
       - typescript-operations
-      - typescript-graphql-request
+      - typescript-react-query
     config:
       fetcher: graphql-request
-      isReactHook: true
-      exposeQueryKeys: true
