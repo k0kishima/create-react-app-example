@@ -25,8 +25,8 @@ export const Item: React.FC<Props> = ({ name, value }: Props) => {
           control={
             <Switch
               name={name}
+              defaultChecked={value}
               color='primary'
-              checked={value}
               onChange={(event) => {
                 mutate({
                   input: {
