@@ -1,0 +1,6 @@
+query getSettings {
+  settings {
+    var
+    value
+  }
+}

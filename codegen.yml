@@ -1,5 +1,7 @@
 overwrite: true
 schema: ${REACT_APP_GRAPHQL_SERVER_BASE_URL}
+documents:
+  - ./src/graphql/**/*.graphql
 generates:
   src/generated/graphql.ts:
     plugins:
@@ -7,4 +9,4 @@ generates:
       - typescript-operations
       - typescript-react-query
     config:
-      fetcher: fetch
+      fetcher: graphql-request

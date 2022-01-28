@@ -1,8 +1,15 @@
+import { GraphQLClient } from 'graphql-request';
+import { RequestInit } from 'graphql-request/dist/types.dom';
+import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from 'react-query';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+
+function fetcher<TData, TVariables>(client: GraphQLClient, query: string, variables?: TVariables, headers?: RequestInit['headers']) {
+  return async (): Promise<TData> => client.request<TData, TVariables>(query, variables, headers);
+}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -62,3 +69,62 @@ export type UpdateSettingPayload = {
   clientMutationId?: Maybe<Scalars['String']>;
   setting: Setting;
 };
+
+export type UpdateSettingMutationVariables = Exact<{
+  input: UpdateSettingInput;
+}>;
+
+
+export type UpdateSettingMutation = { __typename?: 'Mutation', updateSetting?: { __typename?: 'UpdateSettingPayload', setting: { __typename?: 'Setting', var: string, value: boolean } } | null | undefined };
+
+export type GetSettingsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetSettingsQuery = { __typename?: 'Query', settings: Array<{ __typename?: 'Setting', var: string, value: boolean }> };
+
+
+export const UpdateSettingDocument = `
+    mutation updateSetting($input: UpdateSettingInput!) {
+  updateSetting(input: $input) {
+    setting {
+      var
+      value
+    }
+  }
+}
+    `;
+export const useUpdateSettingMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(
+      client: GraphQLClient,
+      options?: UseMutationOptions<UpdateSettingMutation, TError, UpdateSettingMutationVariables, TContext>,
+      headers?: RequestInit['headers']
+    ) =>
+    useMutation<UpdateSettingMutation, TError, UpdateSettingMutationVariables, TContext>(
+      'updateSetting',
+      (variables?: UpdateSettingMutationVariables) => fetcher<UpdateSettingMutation, UpdateSettingMutationVariables>(client, UpdateSettingDocument, variables, headers)(),
+      options
+    );
+export const GetSettingsDocument = `
+    query getSettings {
+  settings {
+    var
+    value
+  }
+}
+    `;
+export const useGetSettingsQuery = <
+      TData = GetSettingsQuery,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables?: GetSettingsQueryVariables,
+      options?: UseQueryOptions<GetSettingsQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<GetSettingsQuery, TError, TData>(
+      variables === undefined ? ['getSettings'] : ['getSettings', variables],
+      fetcher<GetSettingsQuery, GetSettingsQueryVariables>(client, GetSettingsDocument, variables, headers),
+      options
+    );

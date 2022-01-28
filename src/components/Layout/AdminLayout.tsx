@@ -192,7 +192,7 @@ export const AdminLayout: React.FC<Props> = ({ children, title }: Props) => {
                 <ListItemText primary='ダッシュボード' />
               </ListItem>
             </Link>
-            <Link to='/settings' className={classes.link}>
+            <Link to='/setting' className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
                   <SettingsIcon />
