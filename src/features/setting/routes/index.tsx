@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Setting } from '../';
+import { Settings } from './Settings';
 
 export const SettingRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Setting />} />
+      <Route path='/' element={<Settings />} />
     </Routes>
   );
 };

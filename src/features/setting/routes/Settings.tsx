@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { AdminLayout } from '@/components/Layout';
+import { ItemList } from '../';
 
-export const Container: React.VFC = () => {
+export const Settings = () => {
   return (
     <AdminLayout title='システム設定'>
-      <div>implement a setting feature here.</div>
+      <ItemList />
     </AdminLayout>
   );
 };
